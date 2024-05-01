@@ -1,0 +1,90 @@
+name: ciri2
+
+networks:
+  ciri2_network:
+    driver: bridge
+
+services:
+  gateway:
+    container_name: gateway
+    image: jordywalraven/ciri2-gateway:latest
+    build:
+      context: ./apps/gateway/gateway
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - AUDIENCE=${AUDIENCE}
+      - JWK_URL=${JWK_URL}
+      - COMPONENT_HOST=${COMPONENT_HOST}
+      - INFLUXDB_HOST=${INFLUXDB_HOST}
+      - INFLUXDB_PORT=${INFLUXDB_PORT}
+      - INFLUXDB_USER=${INFLUXDB_USER}
+      - INFLUXDB_USER_PASSWORD=${INFLUXDB_USER_PASSWORD}
+    networks:
+      - ciri2_network
+
+  grafana:
+    container_name: grafana
+    image: jordywalraven/ciri2-grafana:latest
+    build:
+      context: ./apps/gateway/gateway/monitoring/grafana
+      dockerfile: Dockerfile
+    ports:
+      - '4000:3000'
+    environment:
+      - INFLUXDB_HOST=${INFLUXDB_HOST}
+      - INFLUXDB_PORT=${INFLUXDB_PORT}
+      - INFLUXDB_USER=${INFLUXDB_USER}
+      - INFLUXDB_USER_PASSWORD=${INFLUXDB_USER_PASSWORD}
+    networks:
+      - ciri2_network
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.8.10
+    environment:
+      - INFLUXDB_DB=krakend
+      - INFLUXDB_USER=${INFLUXDB_USER}
+      - INFLUXDB_USER_PASSWORD=${INFLUXDB_USER_PASSWORD}
+      - INFLUXDB_ADMIN_USER=${INFLUXDB_ADMIN_USER}
+      - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_ADMIN_PASSWORD}
+    ports:
+      - '8086:8086'
+    networks:
+      - ciri2_network
+
+  frontend:
+    container_name: frontend
+    image: jordywalraven/ciri2-fe:latest
+    build:
+      context: ./
+      dockerfile: apps/frontend/Dockerfile.dev
+    ports:
+      - '80:80'
+    networks:
+      - ciri2_network
+
+  pc-microservice:
+    container_name: pc-microservice
+    image: jordywalraven/ciri2-pc-microservice:latest
+    build:
+      context: ./apps/pc-microservice
+      dockerfile: Dockerfile
+    environment:
+      - MONGOURI=${MONGOURI}
+      - PC_PORT=${PC_PORT}
+    ports:
+      - '4050:4050'
+    depends_on:
+      - mongo
+    networks:
+      - ciri2_network
+
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - ciri2_network

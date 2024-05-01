@@ -69,8 +69,8 @@ services:
     container_name: pc-microservice
     image: jordywalraven/ciri2-pc-microservice:latest
     build:
-      context: ./apps/pc-microservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: apps/pc-microservice/Dockerfile
     environment:
       - MONGOURI=${MONGOURI}
       - PC_PORT=${PC_PORT}

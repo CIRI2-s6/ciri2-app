@@ -13,15 +13,6 @@
         ],
         "parallel": false
       }
-    },
-    "docker": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": [
-          "docker compose -f apps/gateway/docker-compose.yml up --build"
-        ],
-        "parallel": false
-      }
     }
   }
 }

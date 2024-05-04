@@ -50,3 +50,16 @@ jobs:
       # Run tests
       - name: Run tests
         run: pnpm run test:affected
+
+      - name: Semantic versioning
+        run: pnpm run version:affected
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+      - name: Tag last-release
+        shell: bash
+        run: |
+          git tag -f last-release
+          git push origin last-release --force
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'

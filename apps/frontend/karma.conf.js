@@ -25,8 +25,10 @@ module.exports = function (config) {
       subdir: '.',
       reports: ['html', 'lcovonly', 'text-summary'] // Add 'lcovonly' here
     },
+    autoWatch : false,
+    singleRun : true,
     reporters: ['progress', 'kjhtml', 'coverage-istanbul'], // Add 'coverage-istanbul' here
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     restartOnFileChange: true
   });
 };

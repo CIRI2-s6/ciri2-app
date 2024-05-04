@@ -36,7 +36,7 @@ jobs:
         run: pnpm install -g nx
 
       # Check if application builds
-      - name: Build application
+      - name: Build applications
         run: pnpm run build:affected
       - name: Run tests
         run: pnpm run test:affected

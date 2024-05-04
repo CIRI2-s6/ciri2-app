@@ -27,6 +27,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions Versioning"
           git config --global user.email "versioning@version.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/CIRI2-s6/ciri2-app.git
       # Setup nodejs
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

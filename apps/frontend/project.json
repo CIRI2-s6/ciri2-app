@@ -92,6 +92,12 @@
           "apps/frontend/src/manifest.webmanifest"
         ]
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits"
+      }
     }
   }
 }

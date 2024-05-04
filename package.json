@@ -11,7 +11,8 @@
     "test:affected": "nx affected:test --parallel --base=origin/main~1",
     "lint:affected": "nx affected:lint --parallel --base=origin/main~1",
     "docker:affected": "nx affected --target=docker --base=origin/main~1",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "prepare": "husky"
   },
   "private": true,
   "devDependencies": {
@@ -24,6 +25,8 @@
     "@angular/cli": "~17.3.0",
     "@angular/compiler-cli": "~17.3.0",
     "@angular/language-service": "~17.3.0",
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
     "@nx-go/nx-go": "^3.0.0",
     "@nx-tools/nx-docker": "^3.0.8",
     "@nx/angular": "^18.3.4",
@@ -46,6 +49,7 @@
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-playwright": "^0.15.3",
+    "husky": "^9.0.0",
     "jasmine-core": "4.2.0",
     "jasmine-spec-reporter": "7.0.0",
     "karma": "6.4.0",
@@ -70,6 +74,7 @@
     "@angular/router": "~17.3.0",
     "@angular/service-worker": "^17.3.6",
     "@auth0/auth0-angular": "^2.2.3",
+    "@jscutlery/semver": "^5.2.2",
     "angular-notifier": "^14.0.0",
     "karma-coverage-istanbul-reporter": "^3.0.3",
     "papaparse": "^5.4.1",

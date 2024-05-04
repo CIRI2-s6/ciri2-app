@@ -28,6 +28,12 @@
       "options": {
         "tags": ["jordywalraven/ciri2-pc-microservice:latest"]
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits"
+      }
     }
   }
 }

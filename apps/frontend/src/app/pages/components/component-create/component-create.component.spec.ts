@@ -16,7 +16,7 @@ describe('ComponentCreateComponent', () => {
   beforeEach(async () => {
     componentServiceMock = jasmine.createSpyObj('ComponentService', [
       'checkComponentExists',
-      'batchImportComponents'
+      'batchImportComponents',
     ]);
 
     routerMock = jasmine.createSpyObj('Router', ['navigate']);
@@ -29,11 +29,13 @@ describe('ComponentCreateComponent', () => {
         {
           provide: HttpClient,
           useValue: {
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
             post: () => {},
-            request: () => {}
-          }
-        }
-      ]
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            request: () => {},
+          },
+        },
+      ],
     }).compileComponents();
   });
 
@@ -48,7 +50,7 @@ describe('ComponentCreateComponent', () => {
     const file = [
       ['name', 'age', 'gender'],
       ['John', '25', 'Male'],
-      ['Jane', '30', 'Female']
+      ['Jane', '30', 'Female'],
     ];
 
     // Act
@@ -60,7 +62,7 @@ describe('ComponentCreateComponent', () => {
     expect(component.type()).toBe(''); // Update with the expected type
     expect(component.components()).toEqual([
       { name: 'John', age: '25', gender: 'Male' },
-      { name: 'Jane', age: '30', gender: 'Female' }
+      { name: 'Jane', age: '30', gender: 'Female' },
     ]);
     expect(component.step()).toBe(1);
   });
@@ -74,7 +76,7 @@ describe('ComponentCreateComponent', () => {
       'boost_clock',
       'tdp',
       'smt',
-      'graphics'
+      'graphics',
     ];
 
     // Act
@@ -97,7 +99,7 @@ describe('ComponentCreateComponent', () => {
     expect(component.step()).toBe(2);
     expect(component.checkComponentExists).toHaveBeenCalledWith([
       'John',
-      'Jane'
+      'Jane',
     ]);
   });
 
@@ -114,7 +116,7 @@ describe('ComponentCreateComponent', () => {
     expect(component.step()).toBe(2);
     expect(component.checkComponentExists).toHaveBeenCalledWith([
       'John',
-      'Jane'
+      'Jane',
     ]);
   });
 
@@ -140,7 +142,7 @@ describe('ComponentCreateComponent', () => {
       of<ComponentResponse>({
         status: 'success',
         message: 'Components imported successfully',
-        data: { components: {} }
+        data: { components: {} },
       } as ComponentResponse) // Fix: Cast the object to ComponentResponse
     );
 
@@ -161,7 +163,7 @@ describe('ComponentCreateComponent', () => {
       of<ComponentResponse>({
         status: 'success',
         message: 'Components imported successfully',
-        data: { components: {} }
+        data: { components: {} },
       } as ComponentResponse) // Fix: Cast the object to ComponentResponse
     );
 
@@ -186,7 +188,7 @@ describe('ComponentCreateComponent', () => {
         boost_clock: '1',
         tdp: '1',
         smt: '1',
-        graphics: '1'
+        graphics: '1',
       },
       {
         name: 'Component2',
@@ -196,8 +198,8 @@ describe('ComponentCreateComponent', () => {
         boost_clock: '2',
         tdp: '2',
         smt: '2',
-        graphics: '2'
-      }
+        graphics: '2',
+      },
     ];
 
     component.type = signal('CPU');
@@ -217,8 +219,8 @@ describe('ComponentCreateComponent', () => {
           boost_clock: '1',
           tdp: '1',
           smt: '1',
-          graphics: '1'
-        }
+          graphics: '1',
+        },
       },
       {
         name: 'Component2',
@@ -230,9 +232,9 @@ describe('ComponentCreateComponent', () => {
           boost_clock: '2',
           tdp: '2',
           smt: '2',
-          graphics: '2'
-        }
-      }
+          graphics: '2',
+        },
+      },
     ]);
   });
 

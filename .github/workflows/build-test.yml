@@ -35,8 +35,14 @@ jobs:
       - name: Install nx
         run: pnpm install -g nx
 
+      # Check linting
+      - name: Lint applications
+        run: pnpm run lint:affected
+
       # Check if application builds
       - name: Build applications
         run: pnpm run build:affected
+
+      # Run tests
       - name: Run tests
         run: pnpm run test:affected

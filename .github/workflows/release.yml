@@ -45,7 +45,7 @@ jobs:
       - name: Semantic versioning
         run: pnpm run version:affected
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
 
       - name: Tag last-release
         shell: bash

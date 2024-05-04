@@ -46,3 +46,6 @@ jobs:
       # Run tests
       - name: Run tests
         run: pnpm run test:affected
+
+      - name: Semantic versioning
+        run: pnpm run version:affected

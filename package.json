@@ -11,7 +11,7 @@
     "test:affected": "nx affected:test --parallel --base=origin/main~1",
     "lint:affected": "nx affected:lint --parallel --base=origin/main~1",
     "docker:affected": "nx affected --target=docker --base=origin/main~1",
-    "version:all": "nx run-many --target=version --base=origin/main~1 --push",
+    "version:affected": "nx affected --target=version --base=origin/main~1 --push",
     "changeset": "changeset",
     "prepare": "husky"
   },

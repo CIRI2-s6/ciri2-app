@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.2](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.1...frontend-0.1.2) (2024-05-04)
+
+
+### Bug Fixes
+
+* login to git ([21005e6](https://github.com/CIRI2-s6/ciri2-app/commit/21005e651d75944e99abdebaf80441c317534549))
+* move tag creation to normal ci/cd ([f9fe447](https://github.com/CIRI2-s6/ciri2-app/commit/f9fe44775809c49d241fe2b6d588978b36de2afb))
+* remove persist credentials ([d6c43f8](https://github.com/CIRI2-s6/ciri2-app/commit/d6c43f8950113bee0baa1cd485fb437419f55ede))
+
 ## [0.1.1](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.0...frontend-0.1.1) (2024-05-04)
 
 

@@ -14,6 +14,7 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
+// set the struct for the controller
 type ComponentController struct{}
 
 var componentService services.ComponentService

@@ -2,7 +2,7 @@
 package routes
 
 import (
-	"ciri2-pc_microservice/internal/controllers"
+	"ciri2-pc-microservice/internal/controllers"
 
 	"github.com/gin-gonic/gin"
 )

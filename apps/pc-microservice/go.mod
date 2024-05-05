@@ -1,4 +1,4 @@
-module ciri2-pc_microservice
+module ciri2-pc-microservice
 
 go 1.22
 

@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: jordywalraven1@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - dns01:
+          azureDNS:
+            resourceGroupName: CIRI2_group
+            subscriptionID: a2850f9c-6f82-4628-84b2-20936ed1f874
+            hostedZoneName: ciri2.nl
+            environment: AzurePublicCloud
+            managedIdentity:
+              clientID: 113d5167-f3df-4311-a4e9-632b9af855bb

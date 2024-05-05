@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: gateway
+  name: gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: gateway
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/ciri2-ciri2-network: 'true'
+        io.kompose.service: gateway
+    spec:
+      containers:
+        - env:
+            - name: AUDIENCE
+              value: https://ciri2.com
+            - name: COMPONENT_HOST
+              value: http://pc-microservice:4050
+            - name: INFLUXDB_HOST
+              value: http://influxdb
+            - name: INFLUXDB_PORT
+              value: '8086'
+            - name: INFLUXDB_USER
+              value: krakend-dev
+            - name: INFLUXDB_USER_PASSWORD
+              value: pas5w0rd
+            - name: JWK_URL
+              value: https://ciri2.eu.auth0.com/.well-known/jwks.json
+            - name: KRAKEND_PORT
+              value: '8080'
+          image: jordywalraven/ciri2-gateway:release
+          name: gateway
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+      restartPolicy: Always
+status: {}

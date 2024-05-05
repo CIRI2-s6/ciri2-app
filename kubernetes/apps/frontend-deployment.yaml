@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    io.kompose.service: frontend
+    app: frontend
+
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: frontend
+        tier: web
+    spec:
+      containers:
+        - image: jordywalraven/ciri2-fe:release
+          name: frontend
+          ports:
+            - containerPort: 8443
+              protocol: TCP
+          volumeMounts:
+            - name: tls
+              mountPath: /etc/tls
+              readOnly: true
+          env:
+            - name: TLS_CERT
+              value: /etc/tls/tls.crt
+            - name: TLS_KEY
+              value: /etc/tls/tls.key
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+      restartPolicy: Always
+      volumes:
+        - name: tls
+          secret:
+            secretName: www-tls

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  annotations:
+    kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
+    kompose.version: 1.31.2 (a92241f79)
+    service.beta.kubernetes.io/azure-dns-label-name: lb-testbalancer
+spec:
+  ports:
+    - port: 443
+      protocol: TCP
+      targetPort: 8443
+  selector:
+    app: frontend
+    tier: web
+  type: LoadBalancer

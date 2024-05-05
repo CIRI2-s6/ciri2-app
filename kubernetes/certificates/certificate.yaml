@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: www
+spec:
+  secretName: www-tls
+  privateKey:
+    rotationPolicy: Always
+  commonName: www.ciri2.nl
+  dnsNames:
+    - www.ciri2.nl
+  usages:
+    - digital signature
+    - key encipherment
+    - server auth
+  issuerRef:
+    name: selfsigned
+    kind: ClusterIssuer

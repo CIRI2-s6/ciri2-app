@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.5](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.4...frontend-0.1.5) (2024-05-05)
+
+
+### Bug Fixes
+
+* login text ([e9db54a](https://github.com/CIRI2-s6/ciri2-app/commit/e9db54a2f489544bba0c40533d0dd9a93cd273e0))
+
 ## [0.1.4](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.3...frontend-0.1.4) (2024-05-05)
 
 ## [0.1.4](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.3...frontend-0.1.4) (2024-05-05)

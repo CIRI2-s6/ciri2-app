@@ -42,7 +42,6 @@ func (c ComponentController) BatchCreateComponent() gin.HandlerFunc {
 				return
 			}
 		}
-		print("components", components)
 
 		result, err := componentService.BatchCreateComponent(components)
 

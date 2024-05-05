@@ -65,12 +65,12 @@ services:
     networks:
       - ciri2_network
 
-  pc-microservice:
-    container_name: pc-microservice
-    image: jordywalraven/ciri2-pc-microservice:latest
+  pc_microservice:
+    container_name: pc_microservice
+    image: jordywalraven/ciri2-pc_microservice:latest
     build:
       context: .
-      dockerfile: apps/pc-microservice/Dockerfile
+      dockerfile: apps/pc_microservice/Dockerfile
     environment:
       - MONGOURI=${MONGOURI}
       - PC_PORT=${PC_PORT}

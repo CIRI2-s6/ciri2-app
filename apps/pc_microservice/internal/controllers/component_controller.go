@@ -2,9 +2,9 @@
 package controllers
 
 import (
-	"ciri2-pc-microservice/internal/models"
-	"ciri2-pc-microservice/internal/services"
-	"ciri2-pc-microservice/internal/utils"
+	"ciri2-pc_microservice/internal/models"
+	"ciri2-pc_microservice/internal/services"
+	"ciri2-pc_microservice/internal/utils"
 	"encoding/json"
 	"strconv"
 

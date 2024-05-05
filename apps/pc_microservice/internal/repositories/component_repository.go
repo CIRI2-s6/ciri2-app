@@ -2,8 +2,8 @@
 package repositories
 
 import (
-	"ciri2-pc-microservice/configs"
-	"ciri2-pc-microservice/internal/models"
+	"ciri2-pc_microservice/configs"
+	"ciri2-pc_microservice/internal/models"
 	"context"
 	"time"
 

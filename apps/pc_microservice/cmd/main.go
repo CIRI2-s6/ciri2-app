@@ -2,9 +2,9 @@
 package main
 
 import (
-	"ciri2-pc-microservice/configs"
-	docs "ciri2-pc-microservice/docs"
-	"ciri2-pc-microservice/internal/routes"
+	"ciri2-pc_microservice/configs"
+	docs "ciri2-pc_microservice/docs"
+	"ciri2-pc_microservice/internal/routes"
 
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"

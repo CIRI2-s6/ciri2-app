@@ -2,8 +2,8 @@
 package services
 
 import (
-	"ciri2-pc-microservice/internal/models"
-	"ciri2-pc-microservice/internal/repositories"
+	"ciri2-pc_microservice/internal/models"
+	"ciri2-pc_microservice/internal/repositories"
 )
 
 type ComponentService struct{}

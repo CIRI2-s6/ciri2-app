@@ -98,6 +98,13 @@
       "options": {
         "preset": "conventionalcommits"
       }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": ["jordywalraven/ciri2-fe:release"]
+      }
     }
   }
 }

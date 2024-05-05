@@ -48,3 +48,5 @@ jobs:
           echo "::set-output name=app_name::${APP_NAME}"
       - name: Build application
         run: nx build "${{ steps.get_tag.outputs.app_name }}"
+      - name: Dockerhub application
+        run: nx docker "${{ steps.get_tag.outputs.app_name }}"

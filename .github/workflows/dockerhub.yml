@@ -1,11 +1,11 @@
-name: Development
+name: Dockerhub release
 # run on every push
 on:
   release:
     types: [published]
 
 jobs:
-  release:
+  dockerhub-release:
     runs-on: ubuntu-latest
     strategy:
       matrix:

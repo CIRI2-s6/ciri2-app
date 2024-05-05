@@ -20,6 +20,14 @@
         "preset": "conventionalcommits"
       }
     },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "docker build -t jordywalraven/ciri2-gateway:latest ./apps/gateway/gateway && docker build -t jordywalraven/ciri2-grafana:latest ./apps/gateway/gateway/monitoring/grafana"
+        ]
+      }
+    },
     "docker": {
       "executor": "nx:run-commands",
       "options": {

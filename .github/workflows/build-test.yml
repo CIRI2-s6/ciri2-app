@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  build-test-tag:
     runs-on: ubuntu-latest
     strategy:
       matrix:

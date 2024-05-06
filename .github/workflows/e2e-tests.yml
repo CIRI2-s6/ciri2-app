@@ -35,8 +35,11 @@ jobs:
       - name: build applications
         run: pnpm run build:all
       - name: run docker
-        run: |
-          docker compose up --build -d --env PLAYWRIGHT_USER=${{ secrets.PLAYWRIGHT_USER }} --env PLAYWRIGHT_PASSWORD=${{ secrets.PLAYWRIGHT_PASSWORD }}
+        run: docker compose up --build -d
+        env:
+          PLAYWRIGHT_USER: ${{ secrets.PLAYWRIGHT_USER }}
+          PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+
       - name: Playwright tests
         run: nx e2e frontend
       - uses: actions/upload-artifact@v4

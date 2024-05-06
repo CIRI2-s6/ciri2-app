@@ -60,6 +60,10 @@ services:
     build:
       context: ./
       dockerfile: apps/frontend/Dockerfile.dev
+    environment:
+      - PLAYWRIGHT_USER=${PLAYWRIGHT_USER}
+      - PLAYWRIGHT_PASSWORD=${PLAYWRIGHT_PASSWORD}
+
     ports:
       - '80:80'
     networks:

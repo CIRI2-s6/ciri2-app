@@ -31,9 +31,9 @@ spec:
             - name: INFLUXDB_PORT
               value: '8086'
             - name: INFLUXDB_USER
-              value: krakend-dev
+              value: user
             - name: INFLUXDB_USER_PASSWORD
-              value: pas5w0rd
+              value: password
           image: jordywalraven/ciri2-grafana:release
           name: grafana
           ports:

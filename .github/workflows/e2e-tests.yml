@@ -1,0 +1,44 @@
+name: E2E Tests
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-zap:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      # Setup pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go version
+      # Setup nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install nx
+        run: pnpm install -g nx
+      - name: build applications
+        run: pnpm run build:all
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_PASSWORD}}
+      - name: run docker
+        run: docker compose up --build -d
+      - name: Playwright tests
+        run: nx e2e frontend

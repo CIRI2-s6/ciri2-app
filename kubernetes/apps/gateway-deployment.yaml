@@ -27,7 +27,7 @@ spec:
       containers:
         - env:
             - name: AUDIENCE
-              value: https://ciri2.com
+              value: audience
             - name: COMPONENT_HOST
               value: http://pc-microservice:4050
             - name: INFLUXDB_HOST
@@ -35,11 +35,11 @@ spec:
             - name: INFLUXDB_PORT
               value: '8086'
             - name: INFLUXDB_USER
-              value: krakend-dev
+              value: user
             - name: INFLUXDB_USER_PASSWORD
-              value: pas5w0rd
+              value: password
             - name: JWK_URL
-              value: https://ciri2.eu.auth0.com/.well-known/jwks.json
+              value: jwk_url
             - name: KRAKEND_PORT
               value: '8080'
           image: jordywalraven/ciri2-gateway:release

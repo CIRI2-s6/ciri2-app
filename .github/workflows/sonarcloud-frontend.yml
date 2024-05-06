@@ -4,13 +4,44 @@ on:
     paths:
       - 'apps/frontend/**'
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  SonarCloud-frontend:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+          persist-credentials: false
+          fetch-depth: 0
+      # Setup pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go version
+      - name: Set Git identity
+        run: |
+          git config --global user.name "GitHub Actions Versioning"
+          git config --global user.email "versioning@version.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/CIRI2-s6/ciri2-app.git
+      # Setup nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install nx
+        run: pnpm install -g nx
+
+      - name: Run tests
+        run: nx test frontend --code-coverage
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:

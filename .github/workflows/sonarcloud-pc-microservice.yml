@@ -34,9 +34,6 @@ jobs:
       - name: Install nx
         run: pnpm install -g nx
 
-      - name: run mongodb
-        run: docker run -d -p 27017:27017 --name mongodb mongo:latest
-
       - name: Run tests
         run: nx test pc-microservice --code-coverage
 

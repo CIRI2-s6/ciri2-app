@@ -49,9 +49,6 @@ jobs:
       - name: Build applications
         run: pnpm run build:affected
 
-      - name: run mongodb
-        run: docker run -d -p 27017:27017 --name mongodb mongo:latest
-
       # Run tests
       - name: Run tests
         run: pnpm run test:affected

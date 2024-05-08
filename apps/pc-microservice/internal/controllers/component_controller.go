@@ -45,6 +45,7 @@ func (c ComponentController) BatchCreateComponent() gin.HandlerFunc {
 		}
 
 		result, err := componentService.BatchCreateComponent(components)
+		print(result, err)
 
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, models.ComponentResponse{Status: http.StatusInternalServerError, Message: "error", Data: map[string]interface{}{"data": err.Error()}})

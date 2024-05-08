@@ -1,10 +1,10 @@
-name: SonarCloud
+name: SonarCloud-pc-microservice
 on:
   push:
     paths:
       - 'apps/pc-microservice/**'
 jobs:
-  SonarCloud-frontend:
+  SonarCloud-pc-microservice:
     runs-on: ubuntu-latest
     strategy:
       matrix:

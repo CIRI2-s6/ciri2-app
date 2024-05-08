@@ -19,5 +19,5 @@ test.beforeEach(async ({ page }) => {
 
 test('can see components', async ({ page }) => {
   await expect(page).toHaveURL('/components');
-  await expect(page.getByText('AMD Ryzen 7 7800X3D')).toBeVisible();
+  await expect(page.getByText('- 10 of 925')).toBeVisible();
 });

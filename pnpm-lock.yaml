@@ -92,8 +92,8 @@ devDependencies:
     specifier: ~17.3.0
     version: 17.3.6(@angular/compiler@17.3.6)(typescript@5.4.5)
   '@angular/language-service':
-    specifier: ~17.3.0
-    version: 17.3.6
+    specifier: ~17.3.7
+    version: 17.3.7
   '@commitlint/cli':
     specifier: ^18.0.0
     version: 18.6.1(@types/node@18.16.9)(typescript@5.4.5)
@@ -631,8 +631,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@angular/language-service@17.3.6:
-    resolution: {integrity: sha512-mWWLGcW4SikbaTvo5+LiYS859nlQddutukZYhGymdvqsXUseitXVydJygqoLNIIbRGW6R1Q0WBdjUaJvyQQb9Q==}
+  /@angular/language-service@17.3.7:
+    resolution: {integrity: sha512-mt/Q2Hp4B0vFbOp+L709sN0zQRD0Cojfneo6XrHHHRYWpHuaQUhaWGp2ney7X6BgwqMubpxSWb0+5f0R6GRgjw==}
     engines: {node: ^18.13.0 || >=20.9.0}
     dev: true
 

@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.3](https://github.com/CIRI2-s6/ciri2-app/compare/pc-microservice-0.1.2...pc-microservice-0.1.3) (2024-05-08)
+
 ## [0.1.2](https://github.com/CIRI2-s6/ciri2-app/compare/pc-microservice-0.1.1...pc-microservice-0.1.2) (2024-05-05)
 
 ## [0.1.1](https://github.com/CIRI2-s6/ciri2-app/compare/pc-microservice-0.1.0...pc-microservice-0.1.1) (2024-05-05)

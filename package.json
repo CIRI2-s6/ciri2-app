@@ -28,7 +28,7 @@
     "@angular/language-service": "~17.3.7",
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
-    "@nx-go/nx-go": "^3.0.0",
+    "@nx-go/nx-go": "3.0.0",
     "@nx-tools/nx-docker": "^3.0.8",
     "@nx/angular": "^18.3.4",
     "@nx/devkit": "18.3.4",
@@ -86,3 +86,4 @@
     "zone.js": "~0.14.3"
   }
 }
+

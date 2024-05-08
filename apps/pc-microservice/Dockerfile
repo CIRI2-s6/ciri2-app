@@ -4,7 +4,7 @@ FROM golang:1.22.1 AS builder
 # Set destination for COPY
 WORKDIR /app
 
-ENV MONGOURI = ${MONGOURI}
+ENV MONGOURI=${MONGOURI}
 
 # Download Go modules
 COPY apps/pc-microservice/go.mod apps/pc-microservice/go.sum ./

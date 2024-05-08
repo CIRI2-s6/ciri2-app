@@ -21,10 +21,11 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       // Change this line
-      dir:  'coverage/frontend',
+      dir: require('path').join(__dirname, './coverage/frontend'),
       subdir: '.',
       reports: ['html', 'lcovonly', 'text-summary'] // Add 'lcovonly' here
     },
+
     autoWatch : false,
     singleRun : true,
     reporters: ['progress', 'kjhtml', 'coverage-istanbul'], // Add 'coverage-istanbul' here

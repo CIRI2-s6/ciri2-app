@@ -60,6 +60,7 @@ services:
     build:
       context: ./
       dockerfile: apps/frontend/Dockerfile.dev
+
     ports:
       - '80:80'
     networks:
@@ -86,5 +87,14 @@ services:
     image: mongo:latest
     ports:
       - '27017:27017'
+    networks:
+      - ciri2_network
+
+  mongo-seed:
+    build:
+      context: ./mongo-seed
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
     networks:
       - ciri2_network

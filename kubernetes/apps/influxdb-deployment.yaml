@@ -4,7 +4,6 @@ metadata:
   annotations:
     kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
     kompose.version: 1.31.2 (a92241f79)
-  creationTimestamp: null
   labels:
     io.kompose.service: influxdb
   name: influxdb
@@ -19,23 +18,22 @@ spec:
       annotations:
         kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
         kompose.version: 1.31.2 (a92241f79)
-      creationTimestamp: null
       labels:
-        io.kompose.network/ciri2-ciri2-network: "true"
+        io.kompose.network/ciri2-ciri2-network: 'true'
         io.kompose.service: influxdb
     spec:
       containers:
         - env:
             - name: INFLUXDB_ADMIN_PASSWORD
-              value: supersecretpassword
+              value: password
             - name: INFLUXDB_ADMIN_USER
-              value: admin
+              value: user
             - name: INFLUXDB_DB
               value: krakend
             - name: INFLUXDB_USER
-              value: krakend-dev
+              value: user
             - name: INFLUXDB_USER_PASSWORD
-              value: pas5w0rd
+              value: password
           image: influxdb:1.8.10
           name: influxdb
           ports:

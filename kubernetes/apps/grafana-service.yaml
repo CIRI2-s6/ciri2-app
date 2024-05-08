@@ -9,8 +9,9 @@ metadata:
     io.kompose.service: grafana
   name: grafana
 spec:
+  type: LoadBalancer
   ports:
-    - name: "4000"
+    - name: '4000'
       port: 4000
       targetPort: 3000
   selector:

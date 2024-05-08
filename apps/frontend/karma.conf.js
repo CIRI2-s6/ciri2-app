@@ -21,7 +21,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       // Change this line
-      dir: require('path').join(__dirname, './coverage/ciri2'),
+      dir: 'apps/frontend/coverage/frontend',
       subdir: '.',
       reports: ['html', 'lcovonly', 'text-summary'] // Add 'lcovonly' here
     },

@@ -1,0 +1,61 @@
+name: E2E Tests
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-e2e:
+    runs-on: ubuntu-latest
+    environment: e2e tests
+    env:
+      PLAYWRIGHT_USER: ${{ secrets.PLAYWRIGHT_USER }}
+      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      AUDIENCE: ${{ secrets.AUDIENCE }}
+      JWK_URL: ${{ secrets.JWK_URL }}
+      COMPONENT_HOST: ${{ secrets.COMPONENT_HOST }}
+      INFLUXDB_HOST: ${{ secrets.INFLUXDB_HOST }}
+      INFLUXDB_PORT: ${{ secrets.INFLUXDB_PORT }}
+      INFLUXDB_USER: ${{ secrets.INFLUXDB_USER }}
+      INFLUXDB_USER_PASSWORD: ${{ secrets.INFLUXDB_USER_PASSWORD }}
+      MONGOURI: ${{ secrets.MONGOURI }}
+      PC_PORT: ${{ secrets.PC_PORT }}
+
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      # Setup pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go version
+      # Setup nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install && npx playwright install --with-deps && pnpm install -g nx
+      - name: build applications
+        run: pnpm run build:all
+      - name: run docker
+        run: docker compose up --build -d
+
+      - name: Playwright tests
+        run: nx e2e frontend
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

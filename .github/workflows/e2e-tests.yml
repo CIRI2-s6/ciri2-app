@@ -7,6 +7,19 @@ on:
 jobs:
   run-e2e:
     runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_USER: ${{ secrets.PLAYWRIGHT_USER }}
+      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      AUDIENCE: ${{ secrets.AUDIENCE }}
+      JWK_URL: ${{ secrets.JWK_URL }}
+      COMPONENT_HOST: ${{ secrets.COMPONENT_HOST }}
+      INFLUXDB_HOST: ${{ secrets.INFLUXDB_HOST }}
+      INFLUXDB_PORT: ${{ secrets.INFLUXDB_PORT }}
+      INFLUXDB_USER: ${{ secrets.INFLUXDB_USER }}
+      INFLUXDB_USER_PASSWORD: ${{ secrets.INFLUXDB_USER_PASSWORD }}
+      MONGOURI: ${{ secrets.MONGOURI }}
+      PC_PORT: ${{ secrets.PC_PORT }}
+
     strategy:
       matrix:
         node-version: [20]
@@ -36,9 +49,6 @@ jobs:
         run: pnpm run build:all
       - name: run docker
         run: docker compose up --build -d
-        env:
-          PLAYWRIGHT_USER: ${{ secrets.PLAYWRIGHT_USER }}
-          PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
 
       - name: Playwright tests
         run: nx e2e frontend

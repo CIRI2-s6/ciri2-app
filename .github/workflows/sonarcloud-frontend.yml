@@ -42,6 +42,11 @@ jobs:
       - name: Run tests
         run: nx test frontend --code-coverage
 
+      - name: fix code coverage paths
+        working-directory: ./apps/frontend/coverage
+        run: |
+          sed -i 's/\/home\/runner\/work\/ciri2-app\/ciri2-app\//\/github\/workspace\//g' lcov.info
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:

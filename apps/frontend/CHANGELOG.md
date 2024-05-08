@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.9](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.8...frontend-0.1.9) (2024-05-08)
+
 ## [0.1.8](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.7...frontend-0.1.8) (2024-05-06)
 
 ## [0.1.7](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.6...frontend-0.1.7) (2024-05-06)

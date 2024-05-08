@@ -22,11 +22,6 @@ jobs:
         with:
           go-version: '1.22'
       - run: go version
-      - name: Set Git identity
-        run: |
-          git config --global user.name "GitHub Actions Versioning"
-          git config --global user.email "versioning@version.com"
-          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/CIRI2-s6/ciri2-app.git
       # Setup nodejs
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -41,11 +36,6 @@ jobs:
 
       - name: Run tests
         run: nx test frontend --code-coverage
-
-      - name: fix code coverage paths
-        working-directory: ./apps/frontend/coverage/frontend
-        run: |
-          sed -i 's/\/home\/runner\/work\/ciri2-app\/ciri2-app\//\/github\/workspace\//g' lcov.info
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

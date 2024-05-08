@@ -58,7 +58,7 @@ dependencies:
     version: 4.0.0
   tailwindcss:
     specifier: ^3.4.3
-    version: 3.4.3(ts-node@10.9.1)
+    version: 3.4.3(ts-node@10.9.2)
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -197,8 +197,8 @@ devDependencies:
     specifier: ^2.6.2
     version: 2.8.8
   ts-node:
-    specifier: 10.9.1
-    version: 10.9.1(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5)
+    specifier: 10.9.2
+    version: 10.9.2(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5)
   typescript:
     specifier: ~5.4.2
     version: 5.4.5
@@ -359,7 +359,7 @@ packages:
       semver: 7.6.0
       source-map-loader: 5.0.0(webpack@5.90.3)
       source-map-support: 0.5.21
-      tailwindcss: 3.4.3(ts-node@10.9.1)
+      tailwindcss: 3.4.3(ts-node@10.9.2)
       terser: 5.29.1
       tree-kill: 1.2.2
       tslib: 2.6.2
@@ -12210,7 +12210,7 @@ packages:
       camelcase-css: 2.0.1
       postcss: 8.4.38
 
-  /postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.1):
+  /postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2):
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -12224,7 +12224,7 @@ packages:
     dependencies:
       lilconfig: 3.1.1
       postcss: 8.4.38
-      ts-node: 10.9.1(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5)
+      ts-node: 10.9.2(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5)
       yaml: 2.4.2
 
   /postcss-loader@6.2.1(postcss@8.4.38)(webpack@5.91.0):
@@ -13819,7 +13819,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /tailwindcss@3.4.3(ts-node@10.9.1):
+  /tailwindcss@3.4.3(ts-node@10.9.2):
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -13841,7 +13841,7 @@ packages:
       postcss: 8.4.38
       postcss-import: 15.1.0(postcss@8.4.38)
       postcss-js: 4.0.1(postcss@8.4.38)
-      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.1)
+      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2)
       postcss-nested: 6.0.1(postcss@8.4.38)
       postcss-selector-parser: 6.0.16
       resolve: 1.22.8
@@ -14055,6 +14055,38 @@ packages:
 
   /ts-node@10.9.1(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@swc/core': 1.3.107(@swc/helpers@0.5.11)
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 20.12.10
+      acorn: 8.11.3
+      acorn-walk: 8.3.2
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.4.5
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: true
+
+  /ts-node@10.9.2(@swc/core@1.3.107)(@types/node@20.12.10)(typescript@5.4.5):
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'

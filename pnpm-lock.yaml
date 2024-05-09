@@ -58,6 +58,9 @@ importers:
       '@jscutlery/semver':
         specifier: ^5.2.2
         version: 5.2.2(@nx/devkit@18.3.4)
+      '@ngrx/component-store':
+        specifier: ^17.2.0
+        version: 17.2.0(@angular/core@17.3.8)(rxjs@7.8.1)
       angular-notifier:
         specifier: ^14.0.0
         version: 14.0.0(@angular/common@17.3.8)(@angular/core@17.3.8)
@@ -4562,6 +4565,27 @@ packages:
     dependencies:
       '@material/feature-targeting': 15.0.0-canary.7f224ddd4.0
       '@material/theme': 15.0.0-canary.7f224ddd4.0
+      tslib: 2.6.2
+    dev: false
+
+  /@ngrx/component-store@17.2.0(@angular/core@17.3.8)(rxjs@7.8.1):
+    resolution: {integrity: sha512-ywhyoZpkbVIY1t5zf7xfWLGkY0A/fQdMjPehHloDI6bRLrmbllBhQRazwZ+FAGIi2myx1+mGcmAc6FbtIikedA==}
+    peerDependencies:
+      '@angular/core': ^17.0.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/core': 17.3.8(rxjs@7.8.1)(zone.js@0.14.5)
+      '@ngrx/operators': 17.0.0-beta.0(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.2
+    dev: false
+
+  /@ngrx/operators@17.0.0-beta.0(rxjs@7.8.1):
+    resolution: {integrity: sha512-EbO8AONuQ6zo2v/mPyBOi4y0CTAp1x4Z+bx7ZF+Pd8BL5ma53BTCL1TmzaeK5zPUe0yApudLk9/ZbHXPnVox5A==}
+    peerDependencies:
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      rxjs: 7.8.1
       tslib: 2.6.2
     dev: false
 

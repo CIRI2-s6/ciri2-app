@@ -5,13 +5,13 @@ import {
   Component,
   computed,
   OnInit,
-  signal
+  signal,
 } from '@angular/core';
 import { TableComponent } from '../../../components/table/table.component';
 import { ComponentService } from '../../../service/data-access/component.service';
 import {
   ColumnTypes,
-  TableColumn
+  TableColumn,
 } from '../../../components/table/models/column.model';
 import { ComponentModel } from '../../../constants/componentTypes/component.model';
 import { Ciri2ButtonComponent } from '../../../components/buttons/ciri2-button/Ciri2Button.component';
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule, TableComponent, Ciri2ButtonComponent],
   templateUrl: './component-overview.component.html',
   styleUrl: './component-overview.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComponentOverviewComponent implements OnInit {
   constructor(
@@ -45,7 +45,7 @@ export class ComponentOverviewComponent implements OnInit {
     return this.components().map((component) => {
       return {
         ...component,
-        ...component.properties
+        ...component.properties,
       };
     });
   });
@@ -59,12 +59,12 @@ export class ComponentOverviewComponent implements OnInit {
     columns.push({
       name: 'Name',
       key: 'name',
-      type: ColumnTypes.TEXT
+      type: ColumnTypes.TEXT,
     });
     columns.push({
       name: 'Type',
       key: 'type',
-      type: ColumnTypes.TEXT
+      type: ColumnTypes.TEXT,
     });
     const uniqueKeys = new Set<string>();
     this.components().forEach((component) => {
@@ -77,7 +77,7 @@ export class ComponentOverviewComponent implements OnInit {
       columns.push({
         name: key,
         key: key,
-        type: ColumnTypes.TEXT
+        type: ColumnTypes.TEXT,
       });
     });
     return columns;
@@ -92,25 +92,27 @@ export class ComponentOverviewComponent implements OnInit {
     const paginationData = {
       skip: pagination.skip + 1,
       limit: pagination.limit,
-      filter: { type: this.type() }
+      filter: { type: this.type() },
     };
     this.fetchComponents(paginationData);
   }
 
   fetchComponents(pagination: { skip: number; limit: number; filter?: any }) {
-    this.componentService.getComponents(pagination).subscribe((response) => {
-      this.itemsAreLoading.set(false);
-      if (!response.data) {
-        this.components.set([]);
-        return;
-      }
+    this.componentService.getComponents(pagination).subscribe({
+      next: (response) => {
+        this.itemsAreLoading.set(false);
+        if (!response.data) {
+          this.components.set([]);
+          return;
+        }
 
-      this.components.set(response.data.components as ComponentModel[]);
-      if (!response.data.total) {
-        this.components.set([]);
-        return;
-      }
-      this.totalItems.set(response.data.total);
+        this.components.set(response.data.components as ComponentModel[]);
+        if (!response.data.total) {
+          this.components.set([]);
+          return;
+        }
+        this.totalItems.set(response.data.total);
+      },
     });
   }
 

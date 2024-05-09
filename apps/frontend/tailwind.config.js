@@ -8,7 +8,7 @@ module.exports = {
         secondary: '#ffed4a',
         error: '#e3342f',
         success: '#38c172',
-        background: 'rgb(241 245 249)',
+        background: '#101010',
         white: '#fff',
         black: '#000',
         'text-color': '#000'

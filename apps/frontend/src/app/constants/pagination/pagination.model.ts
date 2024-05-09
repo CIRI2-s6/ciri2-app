@@ -8,6 +8,11 @@ export interface Pagination {
   sort?: { [key: string]: any };
 }
 
+export interface SimplePagination {
+  page: number;
+  limit: number;
+}
+
 export function paginationToQueryString(pagination: Pagination): string {
   let queryString = `skip=${pagination.skip}&limit=${pagination.limit}`;
 
@@ -25,5 +30,13 @@ export function paginationToQueryString(pagination: Pagination): string {
     queryString += `&sort=${sortString}`;
   }
 
+  return queryString;
+}
+
+export function simplePaginationToQueryString(
+  page: number,
+  limit: number
+): string {
+  const queryString = `page=${page}&limit=${limit}`;
   return queryString;
 }

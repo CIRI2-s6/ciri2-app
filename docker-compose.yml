@@ -17,6 +17,7 @@ services:
       - AUDIENCE=${AUDIENCE}
       - JWK_URL=${JWK_URL}
       - COMPONENT_HOST=${COMPONENT_HOST}
+      - GAME_HOST=${GAME_HOST}
       - INFLUXDB_HOST=${INFLUXDB_HOST}
       - INFLUXDB_PORT=${INFLUXDB_PORT}
       - INFLUXDB_USER=${INFLUXDB_USER}
@@ -82,6 +83,22 @@ services:
     networks:
       - ciri2_network
 
+  game-microservice:
+    container_name: game-microservice
+    image: jordywalraven/ciri2-game-microservice:latest
+    build:
+      context: .
+      dockerfile: apps/game-microservice/Dockerfile
+    environment:
+      - REDISURI=${REDISURI}
+      - GAME_PORT=${GAME_PORT}
+    ports:
+      - '4051:4051'
+    depends_on:
+      - redis
+    networks:
+      - ciri2_network
+
   mongo:
     container_name: mongo
     image: mongo:latest
@@ -96,5 +113,13 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mongo
+    networks:
+      - ciri2_network
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
     networks:
       - ciri2_network

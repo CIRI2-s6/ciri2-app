@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   input,
-  output
+  output,
 } from '@angular/core';
 
 @Component({
@@ -21,8 +21,8 @@ import {
       (size() === 'small'
         ? 'px-3 py-2'
         : size() === 'medium'
-          ? 'px-4 py-2'
-          : 'px-6 py-3')
+        ? 'px-4 py-2'
+        : 'px-6 py-3')
     "
     [disabled]="disabled()"
     (click)="onClick.emit()"
@@ -30,11 +30,11 @@ import {
     {{ text() }}
   </button>`,
   styleUrl: './Ciri2Button.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Ciri2ButtonComponent {
   color = input.required<'primary' | 'secondary' | 'success' | 'error'>();
-  textColor = input<'white' | 'black'>('white');
+  textColor = input<'white' | 'black' | 'text-color'>('text-color');
   text = input.required<string>();
   size = input<'small' | 'medium' | 'large'>('medium');
   disabled = input<boolean>(false);

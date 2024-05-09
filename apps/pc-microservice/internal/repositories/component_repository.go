@@ -17,19 +17,6 @@ type ComponentRepository struct{}
 
 var componentCollection *mongo.Collection = configs.GetCollection(configs.DB, "components")
 
-// Init initializes the component collection
-func (c ComponentRepository) init() {
-
-	indexModel := mongo.IndexModel{
-		Keys:    bson.M{"name": 1},
-		Options: options.Index().SetUnique(true),
-	}
-	_, err := componentCollection.Indexes().CreateOne(context.Background(), indexModel)
-	if err != nil {
-		panic(err)
-	}
-}
-
 // BatchInsert inserts multiple components into the database
 func (c ComponentRepository) BatchInsert(components []interface{}) (*mongo.BulkWriteResult, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)

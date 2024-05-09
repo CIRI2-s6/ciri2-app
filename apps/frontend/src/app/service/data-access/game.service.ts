@@ -59,4 +59,28 @@ export class GameService {
         )
       );
   }
+
+  getGames(page: number, limit: number) {
+    return this.http
+      .request(
+        HttpMethod.Get,
+        `${environment.apiUrl}/${this.prefix}s/?page=${page}&limit=${limit}`
+      )
+      .pipe(
+        catchError((error) => {
+          this.notifier.notify('error', error.message);
+          return throwError(error);
+        }),
+        map(
+          (response: any) =>
+            ({
+              status: response.status,
+              message: response.message,
+              data: {
+                games: response.data.data,
+              },
+            } as GameResponse)
+        )
+      );
+  }
 }

@@ -19,8 +19,7 @@ func main() {
 	docs.SwaggerInfo.BasePath = "/"
 	docs.SwaggerInfo.Host = "localhost:" + configs.EnvPort()
 
-	// Run database
-	configs.ConnectDB()
+	configs.SetIndexes()
 
 	routes.ComponentRoutes(router)
 	routes.SwaggerRoutes(router)

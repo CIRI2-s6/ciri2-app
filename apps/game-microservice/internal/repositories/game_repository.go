@@ -118,6 +118,7 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 
 func (c GameRepository) FindPaginated(page int, limit int) ([]models.Game, error) {
 	var games []models.Game
+	var skip = 0
 	if page < 1 {
 		page = 1
 	}
@@ -125,9 +126,12 @@ func (c GameRepository) FindPaginated(page int, limit int) ([]models.Game, error
 	if limit < 1 {
 		limit = 10
 	}
+	if page != 1 {
+		skip = 1
+	}
 
-	start := (page - 1) * limit
-	end := start + limit
+	start := (page-1)*limit + skip
+	end := start + (limit)
 
 	if end > len(totalGames) {
 		end = len(totalGames)

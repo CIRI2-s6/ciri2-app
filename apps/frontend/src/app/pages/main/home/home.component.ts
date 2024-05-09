@@ -10,11 +10,12 @@ import { GameService } from '../../../service/data-access/game.service';
 import { debounceTime, map, Subject } from 'rxjs';
 import { GameShell } from '../../../constants/gameTypes/game.model';
 import { Router } from '@angular/router';
+import { GameOverviewComponent } from '../../game/game-overview/game-overview.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, AutoCompleteComponent],
+  imports: [CommonModule, AutoCompleteComponent, GameOverviewComponent],
   providers: [],
   templateUrl: `./home.component.html`,
   styleUrl: './home.component.css',

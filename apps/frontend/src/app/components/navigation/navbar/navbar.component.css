@@ -1,3 +1,6 @@
 :host {
   display: block;
 }
+nav {
+  background-color: hsla(0, 00%, 4%, 0.9);
+}

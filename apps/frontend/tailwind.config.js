@@ -11,7 +11,7 @@ module.exports = {
         background: '#101010',
         white: '#fff',
         black: '#000',
-        'text-color': '#000'
+        textColor: 'white'
       }
     }
   },

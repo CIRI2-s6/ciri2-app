@@ -9,14 +9,6 @@
       "endpoint": "/api/games",
       "input_query_strings": ["page", "limit"],
       "method": "GET",
-      "extra_config": {
-        "auth/validator": {
-          "alg": "RS256",
-          "audience": ["$AUDIENCE"],
-          "jwk_url": "$JWK_URL",
-          "cache": true
-        }
-      },
       "backend": [
         {
           "url_pattern": "/games",
@@ -37,14 +29,6 @@
     {
       "endpoint": "/api/game/name/{name}",
       "method": "GET",
-      "extra_config": {
-        "auth/validator": {
-          "alg": "RS256",
-          "audience": ["$AUDIENCE"],
-          "jwk_url": "$JWK_URL",
-          "cache": true
-        }
-      },
       "backend": [
         {
           "url_pattern": "/game/name/{name}",
@@ -65,14 +49,6 @@
     {
       "endpoint": "/api/game/{id}",
       "method": "GET",
-      "extra_config": {
-        "auth/validator": {
-          "alg": "RS256",
-          "audience": ["$AUDIENCE"],
-          "jwk_url": "$JWK_URL",
-          "cache": true
-        }
-      },
       "backend": [
         {
           "url_pattern": "/game/{id}",
@@ -121,6 +97,7 @@
     {
       "endpoint": "/api/component",
       "method": "POST",
+      "timeout": "15s",
       "extra_config": {
         "auth/validator": {
           "alg": "RS256",

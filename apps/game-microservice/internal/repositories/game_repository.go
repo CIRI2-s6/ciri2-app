@@ -9,6 +9,8 @@ import (
 	"io"
 	"net/http"
 	"strings"
+
+	"github.com/go-redis/redis"
 )
 
 type GameRepository struct{}
@@ -66,9 +68,9 @@ func (c GameRepository) FindByName(name string) ([]models.GameShell, error) {
 func (c GameRepository) FindOne(id string) (interface{}, error) {
 	var game models.Game
 
-	val, err := redisClient.Get(id).Result()
+	val, err := redisClient.ZRangeByScore("games", redis.ZRangeBy{Min: id, Max: id}).Result()
 
-	if err != nil {
+	if len(val) == 0 || err != nil {
 		resp, err := http.Get("https://store.steampowered.com/api/appdetails?appids=" + id)
 		if err != nil {
 			return nil, err
@@ -97,7 +99,7 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 			return nil, err
 		}
 
-		redisResponse := redisClient.Set(id, gameBytes, 0)
+		redisResponse := redisClient.ZAdd("games", redis.Z{Score: float64(game.SteamAppId), Member: gameBytes})
 
 		if redisResponse.Err() != nil {
 			return nil, redisResponse.Err()
@@ -109,7 +111,44 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 
 	}
 
-	err = json.Unmarshal([]byte(val), &game)
+	err = json.Unmarshal([]byte(val[0]), &game)
 
 	return game, err
+}
+
+func (c GameRepository) FindPaginated(page int, limit int) ([]models.Game, error) {
+	var games []models.Game
+	if page < 1 {
+		page = 1
+	}
+
+	if limit < 1 {
+		limit = 10
+	}
+
+	start := (page - 1) * limit
+	end := start + limit
+
+	if end > len(totalGames) {
+		end = len(totalGames)
+	}
+
+	val, err := redisClient.ZRange("games", int64(start), int64(end)).Result()
+
+	if err != nil {
+		return nil, err
+	}
+
+	println(start, end)
+
+	for _, game := range val {
+		var gameObj models.Game
+		err := json.Unmarshal([]byte(game), &gameObj)
+		if err != nil {
+			return nil, err
+		}
+		games = append(games, gameObj)
+	}
+
+	return games, nil
 }

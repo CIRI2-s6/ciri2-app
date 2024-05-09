@@ -11,4 +11,5 @@ func GameRoutes(gameGroup *gin.Engine) {
 	game := new(controllers.GameController)
 	gameGroup.GET("/game/:id", game.GetGameById())
 	gameGroup.GET("/game/name/:name", game.GetGameByName())
+	gameGroup.GET("/games", game.GetPaginatedGames())
 }

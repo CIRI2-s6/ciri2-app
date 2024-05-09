@@ -46,3 +46,18 @@ func (c GameController) GetGameByName() gin.HandlerFunc {
 		ctx.JSON(http.StatusOK, models.GameResponse{Status: http.StatusOK, Message: "success", Data: map[string]interface{}{"data": result}})
 	}
 }
+
+func (c GameController) GetPaginatedGames() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		page := ctx.Query("page")
+		limit := ctx.Query("limit")
+		result, err := gameService.GetPaginatedGames(page, limit)
+
+		if err != nil {
+			ctx.JSON(http.StatusInternalServerError, models.GameResponse{Status: http.StatusInternalServerError, Message: "error", Data: map[string]interface{}{"data": err.Error()}})
+			return
+		}
+
+		ctx.JSON(http.StatusOK, models.GameResponse{Status: http.StatusOK, Message: "success", Data: map[string]interface{}{"data": result}})
+	}
+}

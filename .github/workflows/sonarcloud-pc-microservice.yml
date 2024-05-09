@@ -1,10 +1,10 @@
-name: SonarCloud-frontend
+name: SonarCloud-pc-microservice
 on:
   push:
     paths:
-      - 'apps/frontend/**'
+      - 'apps/pc-microservice/**'
 jobs:
-  SonarCloud-frontend:
+  SonarCloud-pc-microservice:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -35,16 +35,12 @@ jobs:
         run: pnpm install -g nx
 
       - name: Run tests
-        run: nx test frontend --code-coverage
+        run: nx test pc-microservice --code-coverage
 
-      - name: fix code coverage paths
-        working-directory: ./apps/frontend/coverage/frontend
-        run: |
-          sed -i 's/apps\/frontend\///g' lcov.info
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
-          projectBaseDir: apps/frontend
+          projectBaseDir: apps/pc-microservice
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.FRONTEND_SONAR }}
+          SONAR_TOKEN: ${{ secrets.PC_SONAR }}

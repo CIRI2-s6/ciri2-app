@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './auto-complete.component.html',
-  styleUrl: './auto-complete.component.css',
 })
 export class AutoCompleteComponent {
   placeHolder = input('Search');

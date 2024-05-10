@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../../service/data-access/game.service';
 import { GameModel } from '../../../constants/gameTypes/game.model';
@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './game-overview.component.html',
-  styleUrl: './game-overview.component.css',
 })
-export class GameOverviewComponent {
+export class GameOverviewComponent implements OnInit {
   games = signal<GameModel[]>([]);
   page = 1;
   limit = 15;
@@ -29,7 +28,7 @@ export class GameOverviewComponent {
     this.router.navigate([`game/${id}`]);
   }
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: any): void {
+  onScroll(): void {
     const element = document.documentElement;
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       console.log('bottom');

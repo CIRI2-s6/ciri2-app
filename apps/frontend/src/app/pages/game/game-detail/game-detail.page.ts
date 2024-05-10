@@ -9,7 +9,6 @@ import { GameModel } from '../../../constants/gameTypes/game.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './game-detail.page.html',
-  styleUrl: './game-detail.page.css',
 })
 export class GameDetailPage implements OnInit {
   constructor(

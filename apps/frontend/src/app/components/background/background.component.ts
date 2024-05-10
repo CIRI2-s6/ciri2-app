@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GradientBlob } from './blob';
@@ -7,7 +8,6 @@ import { GradientBlob } from './blob';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './background.component.html',
-  styleUrl: './background.component.css',
 })
 export class BackgroundComponent implements OnInit {
   blobs: any[] = [];

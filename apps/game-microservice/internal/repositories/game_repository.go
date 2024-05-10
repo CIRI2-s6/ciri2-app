@@ -81,7 +81,6 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 		if err != nil {
 			return nil, err
 		}
-		println(body)
 
 		var steamDetails models.SteamDetails
 		steamErr := json.Unmarshal(body, &steamDetails)

@@ -1,6 +1,6 @@
 <div class="p-5 h-full">
   <div class="flex justify-between">
-    <h1 class="text-2xl font-bold mb-5">Components</h1>
+    <h1 class="text-2xl font-bold mb-5 text-textColor">Components</h1>
     <app-ciri2-button
       text="Import Components"
       color="primary"
@@ -16,11 +16,11 @@
     [totalItems]="totalItems()"
     [isLoading]="itemsAreLoading()"
   >
-    <div class="flex flex-col">
+    <div class="flex flex-col text text-textColor">
       Component Type
       <select
         (change)="setType($event)"
-        class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-black"
       >
         <option value="CPU">CPU</option>
         <option value="GPU">GPU</option>

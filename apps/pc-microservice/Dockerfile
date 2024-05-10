@@ -8,6 +8,10 @@ ENV MONGOURI=${MONGOURI}
 
 # Download Go modules
 COPY apps/pc-microservice/go.mod apps/pc-microservice/go.sum ./
+
+# Install ca-certificates
+RUN apt-get update && apt-get install -y ca-certificates
+
 RUN go mod download
 
 COPY  apps/pc-microservice .
@@ -19,6 +23,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o ciri2-pc-microservice ./cmd
 FROM scratch
 # Copy the built binary from the builder stage
 COPY --from=builder /app/ciri2-pc-microservice /ciri2-pc-microservice
+
+# Copy the SSL certificates from the builder stage
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # Expose the port
 EXPOSE 4050

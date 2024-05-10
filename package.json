@@ -76,6 +76,7 @@
     "@angular/service-worker": "^17.3.8",
     "@auth0/auth0-angular": "^2.2.3",
     "@jscutlery/semver": "^5.2.2",
+    "@ngrx/component-store": "^17.2.0",
     "angular-notifier": "^14.0.0",
     "karma-coverage-istanbul-reporter": "^3.0.3",
     "papaparse": "^5.4.1",

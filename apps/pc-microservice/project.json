@@ -18,11 +18,7 @@
       }
     },
     "test": {
-      "executor": "nx:run-commands",
-      "options": {
-        "commands": ["go test -cover -coverprofile=cover.out ./..."],
-        "cwd": "apps/pc-microservice"
-      }
+      "executor": "@nx-go/nx-go:test"
     },
     "lint": {
       "executor": "@nx-go/nx-go:lint"

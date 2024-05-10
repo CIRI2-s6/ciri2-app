@@ -1,3 +1,6 @@
 go 1.22
 
-use ./apps/pc-microservice
+use (
+	./apps/game-microservice
+	./apps/pc-microservice
+)

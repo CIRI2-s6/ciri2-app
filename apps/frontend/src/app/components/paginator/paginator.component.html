@@ -1,5 +1,5 @@
 <div class="w-full h-full flex items-center">
-  <p class="mr-3">Page size:</p>
+  <p class="mr-3 text-textColor">Page size:</p>
   <div class="relative">
     <div class="relative">
       <div
@@ -26,7 +26,7 @@
       </button>
     </div>
   </div>
-  <p class="mr-3">
+  <p class="mr-3 text-textColor">
     {{ currentPage() * selectedPageSize }} - {{ ceilAtMaxItems() }} of
     {{ totalItems }}
   </p>
@@ -38,14 +38,18 @@
       (click)="subtractCurrentPage()"
       class="mr-1"
     >
-      <mat-icon text style="font-size: 16px">arrow_back_ios</mat-icon>
+      <mat-icon text style="font-size: 16px" class="text-textColor"
+        >arrow_back_ios</mat-icon
+      >
     </button>
     <button
       [disabled]="atLastPage()"
       ngClass="{{ atLastPage() ? 'text-grey' : 'black' }}"
       (click)="addCurrentPage()"
     >
-      <mat-icon text style="font-size: 16px">arrow_forward_ios</mat-icon>
+      <mat-icon text style="font-size: 16px" class="text-textColor"
+        >arrow_forward_ios</mat-icon
+      >
     </button>
   </div>
 </div>

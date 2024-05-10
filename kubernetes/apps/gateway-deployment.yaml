@@ -28,6 +28,8 @@ spec:
               value: audience
             - name: COMPONENT_HOST
               value: http://pc-microservice:4050
+            - name: GAME_HOST
+              value: http://game-microservice:4051
             - name: INFLUXDB_HOST
               value: http://influxdb
             - name: INFLUXDB_PORT

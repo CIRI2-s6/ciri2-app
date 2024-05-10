@@ -9,10 +9,10 @@ ENV MONGOURI=${MONGOURI}
 # Download Go modules
 COPY apps/pc-microservice/go.mod apps/pc-microservice/go.sum ./
 
+RUN go mod download
+
 # Install ca-certificates
 RUN apt-get update && apt-get install -y ca-certificates
-
-RUN go mod download
 
 COPY  apps/pc-microservice .
 

@@ -10,9 +10,9 @@ metadata:
   name: game-microservice
 spec:
   ports:
-    - name: '4050'
-      port: 4050
-      targetPort: 4050
+    - name: '4051'
+      port: 4051
+      targetPort: 4051
   selector:
     io.kompose.service: game-microservice
 status:

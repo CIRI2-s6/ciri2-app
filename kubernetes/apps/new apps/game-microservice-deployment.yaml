@@ -24,16 +24,14 @@ spec:
     spec:
       containers:
         - env:
-            - name: MONGOURI
-              value: mongodb://mongo:27017
-            - name: game_PORT
-              value: '4050'
+            - name: GAME_PORT
+              value: '4051'
             - name: REDISURI
-              value: http://redis:6379
+              value: redis:6379
           image: jordywalraven/ciri2-game-microservice:release
           name: game-microservice
           ports:
-            - containerPort: 4050
+            - containerPort: 4051
               protocol: TCP
           resources:
             limits:

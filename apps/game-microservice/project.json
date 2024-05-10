@@ -23,6 +23,13 @@
     "lint": {
       "executor": "@nx-go/nx-go:lint"
     },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": ["jordywalraven/ciri2-game-microservice:release"]
+      }
+    },
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {

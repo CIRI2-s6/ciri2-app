@@ -5,13 +5,13 @@ metadata:
     kompose.cmd: C:\Users\jordy\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kompose_Microsoft.Winget.Source_8wekyb3d8bbwe\kompose.exe convert
     kompose.version: 1.31.2 (a92241f79)
   labels:
-    io.kompose.service: gateway
-  name: gateway
+    io.kompose.service: game-microservice
+  name: game-microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: gateway
+      io.kompose.service: game-microservice
   strategy: {}
   template:
     metadata:
@@ -20,32 +20,20 @@ spec:
         kompose.version: 1.31.2 (a92241f79)
       labels:
         io.kompose.network/ciri2-ciri2-network: 'true'
-        io.kompose.service: gateway
+        io.kompose.service: game-microservice
     spec:
       containers:
         - env:
-            - name: AUDIENCE
-              value: audience
-            - name: COMPONENT_HOST
-              value: http://pc-microservice:4050
-            - name: GAME_HOST
-              value: http://game-microservice:4051
-            - name: INFLUXDB_HOST
-              value: http://influxdb
-            - name: INFLUXDB_PORT
-              value: '8086'
-            - name: INFLUXDB_USER
-              value: user
-            - name: INFLUXDB_USER_PASSWORD
-              value: password
-            - name: JWK_URL
-              value: jwk_url
-            - name: KRAKEND_PORT
-              value: '8080'
-          image: jordywalraven/ciri2-gateway:release
-          name: gateway
+            - name: MONGOURI
+              value: mongodb://mongo:27017
+            - name: game_PORT
+              value: '4050'
+            - name: REDISURI
+              value: http://redis:6379
+          image: jordywalraven/ciri2-game-microservice:release
+          name: game-microservice
           ports:
-            - containerPort: 8080
+            - containerPort: 4050
               protocol: TCP
           resources:
             limits:

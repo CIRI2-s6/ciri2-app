@@ -1,3 +1,11 @@
-<div class="flex flex-col items-center justify-center h-full">
-  <h1 class="text-4xl font-bold mb-8">Welcome to CIRI2</h1>
+<div class="flex flex-col">
+  <div class="w-full flex justify-end">
+    <app-auto-complete
+      class="p-5"
+      [options]="options()"
+      (query)="this.searchSubject.next($event)"
+      (selected)="selectGame($event)"
+    ></app-auto-complete>
+  </div>
+  <app-game-overview />
 </div>

@@ -10,6 +10,7 @@ body {
   height: auto;
   margin: 0;
   @apply bg-background;
+  z-index: -30;
 }
 
 :host ::ng-deep .container {

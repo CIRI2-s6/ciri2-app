@@ -6,6 +6,67 @@
   "timeout": "3s",
   "endpoints": [
     {
+      "endpoint": "/api/games",
+      "input_query_strings": ["page", "limit"],
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/games",
+          "host": ["$GAME_HOST"],
+          "extra_config": {
+            "qos/circuit-breaker": {
+              "interval": 60,
+              "name": "component-circuit-breaker",
+              "timeout": 15,
+              "max_errors": 3,
+              "log_status_change": true
+            }
+          }
+        }
+      ],
+      "output_encoding": "json"
+    },
+    {
+      "endpoint": "/api/game/name/{name}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/game/name/{name}",
+          "host": ["$GAME_HOST"],
+          "extra_config": {
+            "qos/circuit-breaker": {
+              "interval": 60,
+              "name": "component-circuit-breaker",
+              "timeout": 15,
+              "max_errors": 3,
+              "log_status_change": true
+            }
+          }
+        }
+      ],
+      "output_encoding": "json"
+    },
+    {
+      "endpoint": "/api/game/{id}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/game/{id}",
+          "host": ["$GAME_HOST"],
+          "extra_config": {
+            "qos/circuit-breaker": {
+              "interval": 60,
+              "name": "component-circuit-breaker",
+              "timeout": 15,
+              "max_errors": 3,
+              "log_status_change": true
+            }
+          }
+        }
+      ],
+      "output_encoding": "json"
+    },
+    {
       "endpoint": "/api/component/{id}",
       "method": "GET",
       "extra_config": {
@@ -36,6 +97,7 @@
     {
       "endpoint": "/api/component",
       "method": "POST",
+      "timeout": "15s",
       "extra_config": {
         "auth/validator": {
           "alg": "RS256",

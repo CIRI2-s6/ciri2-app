@@ -10,10 +10,12 @@ import { notifierOptions } from './options/notifierOptions';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { BackgroundComponent } from './components/background/background.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BackgroundComponent,
     NavbarComponent,
     BrowserModule,
     AppRoutingModule,
@@ -22,11 +24,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       clientId: environment.clientId,
       authorizationParams: {
         audience: environment.audience,
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
       },
       httpInterceptor: {
-        allowedList: ['*']
-      }
+        allowedList: [`${environment.apiUrl}/component*`],
+      },
     }),
     HttpClientModule,
     NotifierModule.withConfig(notifierOptions),
@@ -34,16 +36,16 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

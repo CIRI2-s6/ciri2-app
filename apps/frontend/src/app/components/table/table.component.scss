@@ -2,12 +2,12 @@ tr {
   @apply cursor-pointer transition duration-200 ease-in-out;
 
   &:hover {
-    @apply bg-gray-300;
+    background-color: hsla(0, 0%, 0%, 0.3);
   }
 }
 
 th {
-  @apply border-b border-gray-300 text-black font-medium text-base;
+  @apply border-b border-gray-300 text-textColor font-medium text-base;
 
   &.cdk-column-select {
     @apply w-12;

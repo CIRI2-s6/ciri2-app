@@ -6,12 +6,14 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./pages/main/home/home.component').then((m) => m.HomeComponent)
+      import('./pages/main/home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'auth/login',
     loadComponent: () =>
-      import('./pages/auth/login/login.component').then((m) => m.LoginComponent)
+      import('./pages/auth/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
   },
   {
     path: 'components',
@@ -21,8 +23,8 @@ export const routes: Routes = [
       ).then((m) => m.ComponentOverviewComponent),
     canActivate: [AuthGuard, PermissionGuard],
     data: {
-      roles: ['admin']
-    }
+      roles: ['admin'],
+    },
   },
   {
     path: 'components/create',
@@ -32,7 +34,14 @@ export const routes: Routes = [
       ).then((m) => m.ComponentCreateComponent),
     canActivate: [AuthGuard, PermissionGuard],
     data: {
-      roles: ['admin']
-    }
-  }
+      roles: ['admin'],
+    },
+  },
+  {
+    path: 'game/:id',
+    loadComponent: () =>
+      import('./pages/game/game-detail/game-detail.page').then(
+        (m) => m.GameDetailPage
+      ),
+  },
 ];

@@ -6,6 +6,7 @@ import (
 	"log"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -24,7 +25,9 @@ func ConnectDB() *mongo.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Println("Connected to MongoDB")
+
 	return client
 }
 
@@ -35,4 +38,16 @@ var DB *mongo.Client = ConnectDB()
 func GetCollection(client *mongo.Client, collectionName string) *mongo.Collection {
 	collection := client.Database("pc-db").Collection(collectionName)
 	return collection
+}
+
+func SetIndexes() {
+	componentCollection := GetCollection(DB, "components")
+	indexModel := mongo.IndexModel{
+		Keys:    bson.M{"name": 1},
+		Options: options.Index().SetUnique(true),
+	}
+	_, err := componentCollection.Indexes().CreateOne(context.Background(), indexModel)
+	if err != nil {
+		panic(err)
+	}
 }

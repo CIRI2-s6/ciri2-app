@@ -44,4 +44,11 @@ export const routes: Routes = [
         (m) => m.GameDetailPage
       ),
   },
+  {
+    path: 'account',
+    loadComponent: () =>
+      import('./pages/auth/account/account.component').then(
+        (m) => m.AccountComponent
+      ),
+  },
 ];

@@ -6,6 +6,26 @@
   "timeout": "3s",
   "endpoints": [
     {
+      "endpoint": "/api/account",
+      "method": "DELETE",
+      "backend": [
+        {
+          "url_pattern": "/account/{JWT.sub}",
+          "host": ["$ACCOUNT_HOST"],
+          "extra_config": {
+            "qos/circuit-breaker": {
+              "interval": 60,
+              "name": "component-circuit-breaker",
+              "timeout": 15,
+              "max_errors": 3,
+              "log_status_change": true
+            }
+          }
+        }
+      ],
+      "output_encoding": "json"
+    },
+    {
       "endpoint": "/api/games",
       "input_query_strings": ["page", "limit"],
       "method": "GET",

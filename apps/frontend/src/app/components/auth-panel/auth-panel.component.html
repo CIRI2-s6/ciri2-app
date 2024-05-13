@@ -1,0 +1,41 @@
+<div
+  class="rounded-full flex items-center h-full justify-center cursor-pointer"
+  style="z-index: 999"
+>
+  <div class="relative">
+    <button (click)="toggleDropdown()" class="focus:outline-none">
+      @if (user()?.picture) {
+      <img
+        [src]="user()?.picture"
+        referrerpolicy="no-referrer"
+        width="40px"
+        height="40px"
+        class="rounded-full"
+      />
+      } @else {
+      <mat-icon>account_circle</mat-icon>
+      }
+    </button>
+    <div
+      *ngIf="isDropdownOpen"
+      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10"
+    >
+      <div class="py-1">
+        <div
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 z-10 cursor-pointer"
+          [routerLink]="['/account']"
+        >
+          View details
+        </div>
+      </div>
+      <div class="py-1">
+        <div
+          class="block px-4 py-2 text-sm text-white bg-red-500 hover:bg-red-400 z-10 cursor-pointer"
+          (click)="logout()"
+        >
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 go 1.22
 
 use (
+	./apps/account-service
 	./apps/game-microservice
 	./apps/pc-microservice
 )

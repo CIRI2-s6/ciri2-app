@@ -30,7 +30,7 @@
     "@commitlint/config-conventional": "^18.6.3",
     "@nx-go/nx-go": "3.0.0",
     "@nx-tools/nx-docker": "^3.0.8",
-    "@nx/angular": "^18.3.4",
+    "@nx/angular": "^19.0.2",
     "@nx/devkit": "18.3.4",
     "@nx/eslint": "19.0.1",
     "@nx/eslint-plugin": "19.0.1",

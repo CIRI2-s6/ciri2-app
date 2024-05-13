@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.14](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.13...frontend-0.1.14) (2024-05-13)
+
+
+### Bug Fixes
+
+* fix animation frame ([39a3263](https://github.com/CIRI2-s6/ciri2-app/commit/39a326306183391f50842f20d5295cc8ffba4144))
+
+## [0.1.13](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.12...frontend-0.1.13) (2024-05-10)
+
 ## [0.1.12](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.11...frontend-0.1.12) (2024-05-08)
 
 ## [0.1.11](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.10...frontend-0.1.11) (2024-05-08)

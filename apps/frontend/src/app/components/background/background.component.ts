@@ -28,7 +28,9 @@ export class BackgroundComponent implements OnInit {
         )
       );
     }
-    this.loop(canvas);
+    window.requestAnimationFrame(() => {
+      this.loop(canvas);
+    });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -69,7 +71,9 @@ export class BackgroundComponent implements OnInit {
     });
 
     setTimeout(() => {
-      this.loop(canvas);
+      window.requestAnimationFrame(() => {
+        this.loop(canvas);
+      });
     }, 1000 / 60);
   }
 }

@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y ca-certificates
 
 RUN go mod download
 
+# Install ca-certificates
+RUN apt-get update && apt-get install -y ca-certificates
+
 COPY  apps/pc-microservice .
 
 # Build go application

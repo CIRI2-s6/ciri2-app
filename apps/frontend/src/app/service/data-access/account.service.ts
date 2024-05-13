@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpMethod } from '@auth0/auth0-angular';
-import { environment } from 'apps/frontend/src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { catchError, throwError } from 'rxjs';
-import { paginationToQueryString } from '../../constants/pagination/pagination.model';
 import { HttpClient } from '@angular/common/http';
 import { NotifierService } from 'angular-notifier';
 

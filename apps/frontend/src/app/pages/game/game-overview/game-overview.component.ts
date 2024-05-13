@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class GameOverviewComponent implements OnInit {
   games = signal<GameModel[]>([]);
   page = 1;
-  limit = 15;
+  limit = 14;
 
   constructor(private gameService: GameService, private router: Router) {}
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class GameOverviewComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     const element = document.documentElement;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    if (element.scrollHeight - element.scrollTop <= element.clientHeight + 1) {
       console.log('bottom');
       this.page++;
       this.gameService.getGames(this.page, this.limit).subscribe((games) => {

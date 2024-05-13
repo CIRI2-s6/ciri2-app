@@ -27,7 +27,10 @@ import { BackgroundComponent } from './components/background/background.componen
         redirect_uri: window.location.origin,
       },
       httpInterceptor: {
-        allowedList: [`${environment.apiUrl}/component*`],
+        allowedList: [
+          `${environment.apiUrl}/component*`,
+          `${environment.apiUrl}/account*`,
+        ],
       },
     }),
     HttpClientModule,

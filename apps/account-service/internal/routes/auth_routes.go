@@ -2,9 +2,12 @@
 package routes
 
 import (
+	"ciri2/account-service/internal/controllers"
+
 	"github.com/gin-gonic/gin"
 )
 
 func AuthRoutes(authGroup *gin.Engine) {
-	authGroup.DELETE("/account/:id")
+	auth := new(controllers.AuthController)
+	authGroup.DELETE("/account/:id", auth.GetGameById())
 }

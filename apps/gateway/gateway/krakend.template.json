@@ -214,10 +214,6 @@
     },
     "auth/validator": {
       "shared_cache_duration": 3600
-    },
-    "security/bot-detector": {
-      "empty_user_agent_is_bot": true,
-      "cache_size": 10000
     }
   },
   "output_encoding": "json"

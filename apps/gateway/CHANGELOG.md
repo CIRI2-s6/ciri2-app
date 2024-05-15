@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.3](https://github.com/CIRI2-s6/ciri2-app/compare/gateway-0.1.2...gateway-0.1.3) (2024-05-15)
+
+
+### Bug Fixes
+
+* remove bot detector ([5bfc3e2](https://github.com/CIRI2-s6/ciri2-app/commit/5bfc3e2927ff9420f1c464c5b2a9ea9c8d7c429e))
+
 ## [0.1.2](https://github.com/CIRI2-s6/ciri2-app/compare/gateway-0.1.1...gateway-0.1.2) (2024-05-10)
 
 

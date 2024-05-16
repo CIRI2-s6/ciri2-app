@@ -50,8 +50,8 @@ jobs:
         run: nx docker "${{ steps.get_tag.outputs.app_name }}"
 
   deploy:
+    needs: dockerhub-release
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

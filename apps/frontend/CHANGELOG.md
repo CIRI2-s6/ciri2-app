@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.16](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.15...frontend-0.1.16) (2024-05-16)
+
+
+### Bug Fixes
+
+* wait on dockerhub ([89983f0](https://github.com/CIRI2-s6/ciri2-app/commit/89983f0db2b889090f72f476d46d41fb0e1c11d9))
+
 ## [0.1.15](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.14...frontend-0.1.15) (2024-05-16)
 
 

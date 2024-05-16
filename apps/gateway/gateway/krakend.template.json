@@ -6,6 +6,35 @@
   "timeout": "3s",
   "endpoints": [
     {
+      "endpoint": "/api/account",
+      "method": "DELETE",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "audience": ["$AUDIENCE"],
+          "jwk_url": "$JWK_URL",
+          "cache": true
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/account/{JWT.sub}",
+          "host": ["$ACCOUNT_HOST"],
+          "method": "DELETE",
+          "extra_config": {
+            "qos/circuit-breaker": {
+              "interval": 60,
+              "name": "component-circuit-breaker",
+              "timeout": 15,
+              "max_errors": 3,
+              "log_status_change": true
+            }
+          }
+        }
+      ],
+      "output_encoding": "json"
+    },
+    {
       "endpoint": "/api/games",
       "input_query_strings": ["page", "limit"],
       "method": "GET",
@@ -197,6 +226,14 @@
     "telemetry/metrics": {
       "collection_time": "30s",
       "listen_address": ":8090"
+    },
+    "qos/ratelimit/router": {
+      "max_rate": 50,
+      "capacity": 50,
+      "client_max_rate": 5,
+      "client_capacity": 5,
+      "every": "10m",
+      "strategy": "ip"
     },
     "telemetry/influx": {
       "address": "$INFLUXDB_HOST:$INFLUXDB_PORT",

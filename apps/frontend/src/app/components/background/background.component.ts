@@ -70,10 +70,10 @@ export class BackgroundComponent implements OnInit {
       }
     });
 
-    setTimeout(() => {
-      window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      setTimeout(() => {
         this.loop(canvas);
-      });
-    }, 1000 / 60);
+      }, 1000 / 24);
+    });
   }
 }

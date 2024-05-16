@@ -13,20 +13,18 @@ export class GradientBlob {
   ) {
     this.start = Date.now();
     this.alive = true;
-    this.speedY = -Math.random() - 0.1;
+    this.speedY = -Math.random() * 2 - 0.2;
     this.waveSpeed = Math.random() * 0.1;
     this.randomStartPoint = Math.random() * 100000;
+    this.color = `hsla(170,70%,60%,0.2)`;
   }
 
   draw(ctx: CanvasRenderingContext2D): void {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
-    ctx.fillStyle = 'hsla(180,70%,60%,0.2)';
-    ctx.strokeStyle = 'hsla(180,70%,60%,0.3)';
-    ctx.lineWidth = 3;
+    ctx.fillStyle = this.color;
 
     ctx.fill();
-    ctx.stroke();
   }
 
   update(): void {
@@ -34,11 +32,11 @@ export class GradientBlob {
       Math.sin(
         (Date.now() - this.start + this.randomStartPoint) /
           (1000 + 1000 * this.waveSpeed)
-      ) / 2;
+      ) / 1;
     this.y += this.speedY;
   }
 
-  checkOnScreen(canvas: HTMLCanvasElement): void {
+  checkOnScreen(): void {
     if (this.y + this.r < 0) {
       this.alive = false;
     }

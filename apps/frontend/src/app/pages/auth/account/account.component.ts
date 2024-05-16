@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AccountService } from '../../../service/data-access/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -13,13 +14,18 @@ import { AccountService } from '../../../service/data-access/account.service';
 export class AccountComponent {
   constructor(
     private authService: AuthService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {}
   user = toSignal(this.authService.user$);
 
   deleteAccount(): void {
     this.accountService.deleteAccount().subscribe((result: any) => {
-      console.log(result);
+      this.authService.logout({
+        openUrl(url: string) {
+          window.location.href = '/';
+        },
+      });
     });
   }
 }

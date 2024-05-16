@@ -100,18 +100,18 @@ services:
     networks:
       - ciri2_network
 
-  account-microservice:
-    container_name: account-microservice
-    image: jordywalraven/ciri2-account-microservice:release
-    build:
-      context: .
-      dockerfile: apps/account-service/Dockerfile
-    environment:
-      - ACCOUNT_PORT=${ACCOUNT_PORT}
-    ports:
-      - '4052:4052'
-    networks:
-      - ciri2_network
+  # account-microservice:
+  #   container_name: account-microservice
+  #   image: jordywalraven/ciri2-account-microservice:release
+  #   build:
+  #     context: .
+  #     dockerfile: apps/account-service/Dockerfile
+  #   environment:
+  #     - ACCOUNT_PORT=${ACCOUNT_PORT}
+  #   ports:
+  #     - '4052:4052'
+  #   networks:
+  #     - ciri2_network
 
   mongo:
     container_name: mongo

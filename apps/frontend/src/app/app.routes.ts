@@ -50,5 +50,6 @@ export const routes: Routes = [
       import('./pages/auth/account/account.component').then(
         (m) => m.AccountComponent
       ),
+    canActivate: [AuthGuard],
   },
 ];

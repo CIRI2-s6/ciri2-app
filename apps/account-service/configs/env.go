@@ -37,3 +37,21 @@ func KafkaURI() string {
 
 	return os.Getenv("KAFKA_URI")
 }
+
+func ENVAUTH0CLIENTID() string {
+	envFile, err := godotenv.Read(".env")
+	if envFile != nil && err == nil {
+		return envFile["AUTH0_CLIENT_ID"]
+	}
+
+	return os.Getenv("AUTH0_CLIENT_ID")
+}
+
+func ENVAUTH0CLIENTSECRET() string {
+	envFile, err := godotenv.Read(".env")
+	if envFile != nil && err == nil {
+		return envFile["AUTH0_CLIENT_SECRET"]
+	}
+
+	return os.Getenv("AUTH0_CLIENT_SECRET")
+}

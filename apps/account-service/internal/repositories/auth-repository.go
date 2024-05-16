@@ -2,6 +2,3 @@
 package repositories
 
 type AuthRepository struct{}
-
-func init() {
-}

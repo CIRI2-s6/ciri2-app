@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.16...frontend-0.2.0) (2024-05-18)
+
+
+### Features
+
+* add new relic ([3f61f7d](https://github.com/CIRI2-s6/ciri2-app/commit/3f61f7dcb658c881db2a47a096b72e07d43ee785))
+
 ## [0.1.16](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.15...frontend-0.1.16) (2024-05-16)
 
 

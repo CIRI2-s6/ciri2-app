@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.0](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.2.0...frontend-0.3.0) (2024-05-20)
+
+
+### Features
+
+* add privacy policy ([2a75395](https://github.com/CIRI2-s6/ciri2-app/commit/2a753955abf612b08ec7e1cfb3e171062ea19b15))
+
 ## [0.2.0](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.16...frontend-0.2.0) (2024-05-18)
 
 

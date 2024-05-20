@@ -21,7 +21,6 @@ export const routes: Routes = [
       import(
         './pages/components/component-overview/component-overview.component'
       ).then((m) => m.ComponentOverviewComponent),
-    canActivate: [AuthGuard, PermissionGuard],
     data: {
       roles: ['admin'],
     },
@@ -51,5 +50,12 @@ export const routes: Routes = [
         (m) => m.AccountComponent
       ),
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy.page').then(
+        (m) => m.PrivacyPolicyPage
+      ),
   },
 ];

@@ -92,7 +92,6 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 		var steamResponse = models.Game(steamDetails[id].Data)
 
 		game = steamResponse
-		fmt.Println(game)
 		gameBytes, err := json.Marshal(game)
 		if err != nil {
 			return nil, err
@@ -104,8 +103,6 @@ func (c GameRepository) FindOne(id string) (interface{}, error) {
 			return nil, redisResponse.Err()
 		}
 
-		println("returning")
-		fmt.Println(game)
 		return game, nil
 
 	}
@@ -141,8 +138,6 @@ func (c GameRepository) FindPaginated(page int, limit int) ([]models.Game, error
 	if err != nil {
 		return nil, err
 	}
-
-	println(start, end)
 
 	for _, game := range val {
 		var gameObj models.Game

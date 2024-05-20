@@ -165,7 +165,9 @@
           "alg": "RS256",
           "audience": ["$AUDIENCE"],
           "jwk_url": "$JWK_URL",
-          "cache": true
+          "cache": true,
+          "roles_key": "permissions",
+          "roles": ["read:component"]
         }
       },
       "output_encoding": "json",

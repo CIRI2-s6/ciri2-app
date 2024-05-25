@@ -1,4 +1,4 @@
-name: Dockerhub release
+name: Deployment
 # run on every push
 on:
   release:

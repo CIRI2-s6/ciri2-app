@@ -237,6 +237,11 @@
       "every": "10m",
       "strategy": "ip"
     },
+    "security/bot-detector": {
+      "cache_size": 10000,
+      "empty_user_agent_is_bot": true
+    },
+
     "telemetry/influx": {
       "address": "$INFLUXDB_HOST:$INFLUXDB_PORT",
       "ttl": "25s",

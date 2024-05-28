@@ -1,4 +1,8 @@
-import { NgModule, isDevMode } from '@angular/core';
+import {
+  NgModule,
+  isDevMode,
+  provideExperimentalZonelessChangeDetection,
+} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,6 +52,7 @@ import { BackgroundComponent } from './components/background/background.componen
       useClass: AuthHttpInterceptor,
       multi: true,
     },
+    provideExperimentalZonelessChangeDetection(),
   ],
   bootstrap: [AppComponent],
 })

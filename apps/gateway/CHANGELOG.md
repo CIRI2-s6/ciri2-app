@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/CIRI2-s6/ciri2-app/compare/gateway-0.1.4...gateway-0.2.0) (2024-05-28)
+
+
+### Features
+
+* add privacy policy ([2a75395](https://github.com/CIRI2-s6/ciri2-app/commit/2a753955abf612b08ec7e1cfb3e171062ea19b15))
+
+
+### Bug Fixes
+
+* fix issues ([00ec979](https://github.com/CIRI2-s6/ciri2-app/commit/00ec9794ed1665913ebcebf24f0f5e26dcfd8dac))
+
 ## [0.2.0](https://github.com/CIRI2-s6/ciri2-app/compare/gateway-0.1.4...gateway-0.2.0) (2024-05-20)
 
 

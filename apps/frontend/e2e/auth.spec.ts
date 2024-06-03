@@ -29,8 +29,9 @@ test('can logout', async ({ page }) => {
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await expect(page).toHaveURL('/');
 
-  await page.getByRole('button', { name: 'Log out' }).click();
-  await expect(page).toHaveURL('/');
+  await page.getByRole('button').click();
+
+  await page.getByText('Logout').click();
 });
 
 test('can see component page', async ({ page }) => {

@@ -19,4 +19,22 @@ test.beforeEach(async ({ page }) => {
 
 test('can see components', async ({ page }) => {
   await expect(page).toHaveURL('/components');
+  await expect(page.getByText('AMD Ryzen 7 7800X3D')).toBeTruthy();
+});
+
+test('can import components', async ({ page }) => {
+  await expect(page).toHaveURL('/components');
+  await page.getByText('Import').click();
+  await expect(page).toHaveURL('/components/create');
+  const fileChooserPromise = page.waitForEvent('filechooser');
+  await page.getByLabel('Select files').click();
+  const fileChooser = await fileChooserPromise;
+  await fileChooser.setFiles(`${__dirname}/testData/component/cpu.csv`);
+  await expect(page.getByText('CPU')).toBeTruthy();
+  await page.getByRole('button', { name: 'Check for duplicates' }).click();
+  await expect(page.getByText('426').nth(1)).toBeTruthy();
+  await page.getByRole('button', { name: 'Import all components' }).click();
+  await expect(page.getByText('Components imported')).toBeTruthy();
+  await page.getByRole('button', { name: 'Finish' }).click();
+  await expect(page).toHaveURL('/components');
 });

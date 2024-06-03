@@ -59,7 +59,7 @@
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "nx": "18.3.4",
-    "prettier": "^2.8.8",
+    "prettier": "^3.3.0",
     "ts-node": "10.9.2",
     "typescript": "~5.4.5"
   },

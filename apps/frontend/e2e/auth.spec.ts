@@ -30,7 +30,6 @@ test('can logout', async ({ page }) => {
   await expect(page).toHaveURL('/');
 
   await page.getByRole('button').click();
-
   await page.getByText('Logout').click();
 });
 

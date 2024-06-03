@@ -5,14 +5,15 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	log "github.com/sirupsen/logrus"
 )
 
 // EnvMongoURI returns the MongoDB URI from the environment variables
 func EnvMongoURI() string {
-	println("MONGOURI: ", os.Getenv("MONGOURI"))
+	log.Info("MONGOURI: ", os.Getenv("MONGOURI"))
 	envFile, err := godotenv.Read(".env")
 	if envFile != nil && err == nil {
-		println("MONGOURI: ", envFile["MONGOURI"])
+		log.Info("MONGOURI: ", envFile["MONGOURI"])
 		return envFile["MONGOURI"]
 	}
 

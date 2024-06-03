@@ -1,15 +1,30 @@
 <div class="flex justify-center items-center p-10 h-full w-full">
   <div
-    class="w-1/2 h-4/5 border-white rounded-md flex justify-center border-2 flex-col item"
+    class="w-1/2 h-4/5 border-white rounded-md flex border-2 flex-col item py-6"
   >
     <div class="flex flex-col items-center py-3">
       <img
         [src]="user()?.picture"
         alt="account"
         referrerpolicy="no-referrer"
-        class="rounded-full"
+        class="rounded-full w-20 h-20"
       />
       <h1 class="text-3xl font-bold text-textColor">Account</h1>
+      <div class="w-full p-10 text-textColor">
+        <p><span class="font-bold">Name:</span> {{ user()?.name }}</p>
+        <p><span class="font-bold">Email:</span> {{ user()?.email }}</p>
+        @if (user()?.phone_number) {
+        <p>
+          <span class="font-bold">Phone_number:</span>
+          {{ user()?.phone_number }}
+        </p>
+        } @if (user()?.birthdate) {
+        <p>
+          <span class="font-bold">Birthdate:</span>
+          {{ user()?.birthdate }}
+        </p>
+        }
+      </div>
     </div>
     <div class="flex justify-center">
       <div

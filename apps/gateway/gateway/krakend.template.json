@@ -165,7 +165,9 @@
           "alg": "RS256",
           "audience": ["$AUDIENCE"],
           "jwk_url": "$JWK_URL",
-          "cache": true
+          "cache": true,
+          "roles_key": "permissions",
+          "roles": ["read:component"]
         }
       },
       "output_encoding": "json",
@@ -235,6 +237,11 @@
       "every": "10m",
       "strategy": "ip"
     },
+    "security/bot-detector": {
+      "cache_size": 10000,
+      "empty_user_agent_is_bot": true
+    },
+
     "telemetry/influx": {
       "address": "$INFLUXDB_HOST:$INFLUXDB_PORT",
       "ttl": "25s",
@@ -251,10 +258,6 @@
     },
     "auth/validator": {
       "shared_cache_duration": 3600
-    },
-    "security/bot-detector": {
-      "empty_user_agent_is_bot": true,
-      "cache_size": 10000
     }
   },
   "output_encoding": "json"

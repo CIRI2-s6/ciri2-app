@@ -2,6 +2,42 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.1](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.3.0...frontend-0.3.1) (2024-05-28)
+
+
+### Bug Fixes
+
+* exclude index.html ([2086b79](https://github.com/CIRI2-s6/ciri2-app/commit/2086b7917ff6b464debe0b0df2259ddc8e8c353a))
+* fix issues ([00ec979](https://github.com/CIRI2-s6/ciri2-app/commit/00ec9794ed1665913ebcebf24f0f5e26dcfd8dac))
+
+## [0.3.0](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.2.0...frontend-0.3.0) (2024-05-20)
+
+
+### Features
+
+* add privacy policy ([2a75395](https://github.com/CIRI2-s6/ciri2-app/commit/2a753955abf612b08ec7e1cfb3e171062ea19b15))
+
+## [0.2.0](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.16...frontend-0.2.0) (2024-05-18)
+
+
+### Features
+
+* add new relic ([3f61f7d](https://github.com/CIRI2-s6/ciri2-app/commit/3f61f7dcb658c881db2a47a096b72e07d43ee785))
+
+## [0.1.16](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.15...frontend-0.1.16) (2024-05-16)
+
+
+### Bug Fixes
+
+* wait on dockerhub ([89983f0](https://github.com/CIRI2-s6/ciri2-app/commit/89983f0db2b889090f72f476d46d41fb0e1c11d9))
+
+## [0.1.15](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.14...frontend-0.1.15) (2024-05-16)
+
+
+### Bug Fixes
+
+* broken test ([f9e615a](https://github.com/CIRI2-s6/ciri2-app/commit/f9e615a3840abe046f5e14bf856a9c6da1da9cec))
+
 ## [0.1.14](https://github.com/CIRI2-s6/ciri2-app/compare/frontend-0.1.13...frontend-0.1.14) (2024-05-13)
 
 
